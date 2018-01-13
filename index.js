@@ -21,6 +21,25 @@ var api = new ParseServer({
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
 });
+
+var ParseDashboard = require('parse-dashboard');
+var dashboard = new ParseDashboard({
+  apps: [
+    {
+      serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',
+      appId:     process.env.APP_ID || 'myAppId',
+      masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+      appName:   'ModelMob App'
+    }
+  ],
+  users: [
+    {
+      user: "admin",
+      pass: "20934sadjkklsadf902"
+    } 
+  ]
+});
+
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
